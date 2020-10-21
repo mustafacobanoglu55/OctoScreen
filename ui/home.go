@@ -24,13 +24,13 @@ func HomePanel(ui *UI, parent Panel) Panel {
 func (m *homePanel) initialize() {
 	defer m.Initialize()
 
-	m.AddButton(m.createMoveButton("Home All", "home.svg",
+	m.AddButton(m.createMoveButton("XYZ Sıfırla", "home.svg",
 		octoprint.XAxis, octoprint.YAxis, octoprint.ZAxis,
 	))
 
-	m.AddButton(m.createMoveButton("Home X", "home-x.svg", octoprint.XAxis))
-	m.AddButton(m.createMoveButton("Home Y", "home-y.svg", octoprint.YAxis))
-	m.AddButton(m.createMoveButton("Home Z", "home-z.svg", octoprint.ZAxis))
+	m.AddButton(m.createMoveButton("X Sıfırla", "home-x.svg", octoprint.XAxis))
+	m.AddButton(m.createMoveButton("Y Sıfırla", "home-y.svg", octoprint.YAxis))
+	m.AddButton(m.createMoveButton("Z Sıfırla", "home-z.svg", octoprint.ZAxis))
 }
 
 func (m *homePanel) createMoveButton(label, image string, axes ...octoprint.Axis) gtk.IWidget {
