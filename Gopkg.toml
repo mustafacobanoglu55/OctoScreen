@@ -32,9 +32,9 @@
 ## [[overrides]] are applied.
 ##
 ## Overrides are a sledgehammer. Use them only as a last resort.
-# [[overrides]]
+ [[overrides]]
 ## Required: the root import path of the project being constrained.
-# name = "github.com/user/project"
+ name = "github.com/mustafacobanoglu55/OctoScreen"
 #
 ## Optional: specifying a version constraint override will cause all other
 ## constraints on this project to be ignored; only the overriden constraint
