@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/mcuadros/go-octoprint"
-	"github.com/Z-Bolt/OctoScreen/interfaces"
+	"github.com/mustafacobanoglu55/OctoScreen/interfaces"
 )
 
 // TODO: convert this into a singleton class
