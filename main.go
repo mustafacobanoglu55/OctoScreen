@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Z-Bolt/OctoScreen/ui"
-	"github.com/Z-Bolt/OctoScreen/utils"
+	"github.com/mustafacobanoglu55/OctoScreen/ui"
+	"github.com/mustafacobanoglu55/OctoScreen/utils"
 	"github.com/gotk3/gotk3/gtk"
 	"gopkg.in/yaml.v1"
 
