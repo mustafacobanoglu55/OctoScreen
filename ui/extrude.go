@@ -39,8 +39,8 @@ func ExtrudePanel(ui *UI, parent Panel) Panel {
 func (m *extrudePanel) initialize() {
 	defer m.Initialize()
 
-	m.Grid().Attach(m.createExtrudeButton("Extrude", "extrude.svg", 1), 1, 0, 1, 1)
-	m.Grid().Attach(m.createExtrudeButton("Retract", "retract.svg", -1), 4, 0, 1, 1)
+	m.Grid().Attach(m.createExtrudeButton("Ekstrüzyon ", "extrude.svg", 1), 1, 0, 1, 1)
+	m.Grid().Attach(m.createExtrudeButton("Geri Çek", "retract.svg", -1), 4, 0, 1, 1)
 
 	m.box = MustBox(gtk.ORIENTATION_VERTICAL, 5)
 	m.box.SetVAlign(gtk.ALIGN_CENTER)
@@ -134,22 +134,19 @@ func (m *extrudePanel) createFlowrateButton() *StepButton {
 }
 
 func (m *extrudePanel) createLoadButton() gtk.IWidget {
-	length := 750.0
+	//length := 750.0
 
 	if m.UI.Settings != nil {
 		length = m.UI.Settings.FilamentInLength
 	}
 
-	return MustButtonImage("Load", "extrude.svg", func() {
+	return MustButtonImage("Yükle", "extrude.svg", func() {
 		cmd := &octoprint.CommandRequest{}
 		cmd.Commands = []string{
-			"G91",
-			fmt.Sprintf("G0 E%.1f F5000", length*0.80),
-			fmt.Sprintf("G0 E%.1f F500", length*0.20),
-			"G90",
+			"F_YUKLE"
 		}
 
-		Logger.Info("Sending filament load request")
+		Logger.Info("Filament yükleme talebi gönderme")
 		if err := cmd.Do(m.UI.Printer); err != nil {
 			Logger.Error(err)
 			return
@@ -159,21 +156,19 @@ func (m *extrudePanel) createLoadButton() gtk.IWidget {
 
 func (m *extrudePanel) createUnloadButton() gtk.IWidget {
 
-	length := 800.0
+	//length := 800.0
 
 	if m.UI.Settings != nil {
 		length = m.UI.Settings.FilamentOutLength
 	}
 
-	return MustButtonImage("Unload", "retract.svg", func() {
+	return MustButtonImage("Çıkart", "retract.svg", func() {
 		cmd := &octoprint.CommandRequest{}
 		cmd.Commands = []string{
-			"G91",
-			fmt.Sprintf("G0 E-%.1f F5000", length),
-			"G90",
+			"F_CIKART"
 		}
 
-		Logger.Info("Sending filament unload request")
+		Logger.Info("Filament çıkartma talebi gönderme")
 		if err := cmd.Do(m.UI.Printer); err != nil {
 			Logger.Error(err)
 			return
